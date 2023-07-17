@@ -59,7 +59,7 @@ const loginUser = asyncHandler( async (req,res)=>{
                 id: user.id,
             },
         },"password",
-        { expiresIn: "1m" }
+        { expiresIn: "15m" }
         );
         res.status(200).json({accessToken});
     }else{
@@ -74,7 +74,7 @@ const loginUser = asyncHandler( async (req,res)=>{
 // @access private
 
 const currentUser = asyncHandler( async (req,res)=>{
-    res.json({message:"Current user"});
+    res.json(req.user);
 });
 // ---------------------------------
 
